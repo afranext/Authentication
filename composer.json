@@ -1,0 +1,19 @@
+{
+    "name": "afranext/authwire",
+    "autoload": {
+        "psr-4": {
+            "Afranext\\Authwire\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "A Sharifineyestani",
+            "email": "asharifineyestani@gmail.com"
+        },
+        {
+            "name": "Kourosh Neyestani",
+            "email": "kouroshneyestani@gmail.com"
+        }
+    ],
+    "require": {}
+}
