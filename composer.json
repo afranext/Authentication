@@ -1,19 +1,32 @@
 {
     "name": "afranext/authwire",
-    "autoload": {
-        "psr-4": {
-            "Afranext\\Authwire\\": "src/"
-        }
-    },
+    "type": "library",
+    "description": "Quickly build an Authentication wizard ",
+    "keywords": [
+        "afranext",
+        "admin panel for laravel",
+        "livewire"
+    ],
+    "homepage": "https://github.com/afranext/authwire",
+    "license": "proprietary",
     "authors": [
         {
-            "name": "A Sharifineyestani",
-            "email": "asharifineyestani@gmail.com"
+            "name": "Ali Sharifi Neyestani",
+            "email": "ali@afranext.com"
         },
         {
-            "name": "Kourosh Neyestani",
-            "email": "kouroshneyestani@gmail.com"
+            "name": "Kourosh Sharifi Neyestani",
+            "email": "kourosh@afranext.com"
         }
     ],
-    "require": {}
+    "require": {
+        "livewire/livewire": "^2.10",
+        "cryptommer/smsir": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Afranext\\Authwire\\": "src"
+        },
+        "files": ["src/helpers.php"]
+    }
 }
