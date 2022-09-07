@@ -233,7 +233,7 @@
             @endif
 
 
-            @include('livewire.authwire.partials.'.$step)
+            @include('authwire::authwire.partials.'.$step)
         </div>
 
     </div>

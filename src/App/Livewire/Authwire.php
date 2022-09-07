@@ -1,6 +1,7 @@
 <?php
 
-namespace Afranext\Authwire\App\Http\Livewire;
+namespace Afranext\Authwire\App\Livewire;
+
 
 use Afranext\Authwire\App\Models\SmsLog;
 use App\Models\User;
@@ -353,14 +354,14 @@ class Authwire extends Component
     public function render()
     {
 
-        if(Auth::user())
+        if (Auth::user())
             $this->redirectToDashboard();
 
 
         session()->flash('error', 'Post successfully updated.');
 
-        return view('livewire.authwire.wizard')
-            ->extends('livewire.authwire.master')
+        return view('authwire::authwire/wizard')
+            ->extends('authwire::authwire/master')
             ->section('main');
     }
 
