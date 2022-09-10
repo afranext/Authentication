@@ -3,7 +3,7 @@
 namespace Afranext\Authwire\App\Livewire;
 
 
-use Afranext\Authwire\App\Models\SmsLog;
+use Afranext\Authwire\App\Models\VerifyCode;
 use App\Models\User;
 use Auth;
 use Cryptommer\Smsir\Classes\Smsir;
@@ -100,13 +100,13 @@ class Authwire extends Component
         $this->withValidator(function (Validator $validator) {
             $validator->after(function ($validator) {
 
-                $log = SmsLog::query()
+                $log = VerifyCode::query()
                     ->where('mobile', $this->mobile)
                     ->where('code', $this->code)
                     ->exists();
 
 
-                $count = SmsLog::query()
+                $count = VerifyCode::query()
                     ->where('mobile', $this->mobile)
                     ->whereDate('created_at', \Carbon\Carbon::today())
                     ->count();
@@ -248,7 +248,7 @@ class Authwire extends Component
 
     public function loginByCode()
     {
-        $canLogin = SmsLog::validFromLog($this->code, $this->mobile);
+        $canLogin = VerifyCode::validFromLog($this->code, $this->mobile);
 
         if ($canLogin) {
             $this->redirectToDashboard();
@@ -313,7 +313,7 @@ class Authwire extends Component
     {
         #set log on database
 
-        $count = SmsLog::query()
+        $count = VerifyCode::query()
             ->where('mobile', $this->mobile)
             ->whereDate('created_at', \Carbon\Carbon::today())
             ->count();
@@ -323,7 +323,7 @@ class Authwire extends Component
             return null;
 
 
-        $log = SmsLog::create([
+        $log = VerifyCode::create([
             'mobile' => $this->mobile,
             'ip' => \Request::ip(),
             'code' => rand(1000, 9999),
